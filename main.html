@@ -1,21 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Video Speed Scrubber</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <style>
+        /* Basic styling */
+        .player {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: white;
+        }
+
+        video {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .controls {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .progress {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        .progress__filled {
+            width: 0;
+            height: 5px;
+            background: #f00;
+            flex-basis: 0;
+        }
+
+        input[type="range"] {
+            width: 150px;
+        }
+
+        button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
-    <div class="speed">
-      <div class="speed-bar">1×</div>
-    </div>
-  </div>
+<div class="player">
+    <!-- Video element -->
+    <video class="viewer" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
 
-<script  src="./script.js">
-  //Your code goes here
-</script>
+    <!-- Controls -->
+    <div class="controls">
+        <button class="player__button toggle">►</button>
+        <button class="player__button rewind">« 10s</button>
+        <button class="player__button fastForward">25s »</button>
+        <div class="progress">
+            <div class="progress__filled"></div>
+        </div>
+        <input type="range" name="volume" class="volume" min="0" max="1" step="0.05" value="1">
+        <input type="range" name="playbackSpeed" class="playbackSpeed" min="0.5" max="2" step="0.1" value="1">
+    </div>
+</div>
+
+<script src="scripts.js"></script>
 </body>
 </html>
